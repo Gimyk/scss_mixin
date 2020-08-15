@@ -1,0 +1,55 @@
+@import 'variables';
+
+@mixin mobile {
+    @media (max-width: $mobi_res) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: $mobi_res) {
+        @content;
+    }
+}
+
+
+@mixin button_def{
+    border: none;
+    background: white;
+
+}
+
+@mixin input_def{
+    border: none;
+    background: white;
+    padding: .2em;
+    width: 100%;
+
+}
+
+@mixin flexi($direction, $position){
+    display: flex;
+    align-items: center;
+    justify-content: $position;
+    flex-direction: $direction;
+    width: 100%;
+}
+
+@mixin grid($min){
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax($min, 1fr));
+}
+
+// needs fixing
+@mixin fixedPos($type, $top, $right, $bottom, $left){
+    position: fixed;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+@mixin size($w,$h){
+    width: $w;
+    height: $h;
+}

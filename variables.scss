@@ -1,0 +1,27 @@
+$mobi_res: 800px;
+
+$colors: (
+    primary: #005DFF,
+    primary-light: lighten(#005DFF, 40%),
+    primary-dark: darken(#005DFF, 40%),
+    second: #FFF6BB
+    second-light: lighten(#005DFF, 40%),
+    second-dark: darken(#005DFF, 40%),
+    bg_primary: white,
+    bg_second: white
+);
+
+$borders: (
+    border-rad: .1em,
+    primary-light: lighten(#005DFF, 40%),
+    primary-dark: darken(#005DFF, 40%),
+    accent: #FFF6BB
+);
+
+@function color($color-name) {
+    @return map-get($colors, $color-name)
+};
+
+@function border($border-name) {
+    @return map-get($borders, $border-name)
+}

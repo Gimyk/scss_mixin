@@ -1,0 +1,102 @@
+@import "mixin";
+@import "variables";
+
+$nav-icon-size: 10px;
+
+a {
+  text-decoration: none;
+  &:hover {
+    color: color($primary-light);
+  }
+}
+
+nav {
+  @include fixedPos(fixed, 0, 0, null, 0);
+  @include size(100%, 3em);
+  @include flexi(row, space-between);
+
+  background: rgb(153, 153, 153);
+  z-index: 10;
+  color: color($primary);
+  overflow: hidden;
+
+  img {
+    @include size(100px, 35px);
+    margin-top: 5px;
+  }
+
+  @include mobile {
+    @include size(auto, auto);
+  }
+
+  &:after {
+    content: "☰";
+    @include fixedPos(absolute, 30%, 0.8em, null, null);
+    @include size(1em, null);
+    font-size: 11pt;
+    width: 1em;
+    line-height: 1;
+    text-align: center;
+    position: absolute;
+    margin-top: -($nav-icon-size / 2);
+    margin-left: -($nav-icon-size / 2);
+
+    @include desktop {
+      content: normal;
+      content: none;
+    }
+  }
+
+  &.is-open {
+    overflow: visible;
+    &:after {
+      content: "✕";
+      @include desktop {
+        content: normal;
+        content: none;
+      }
+    }
+  }
+}
+
+.responsive-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-top: 0.3em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: color(primary);
+
+  width: 250px;
+  border-radius: border(border-rad);
+  z-index: -1;
+
+  @include desktop {
+    padding-top: 0;
+    position: static;
+    width: auto;
+    display: block;
+    background: none;
+    text-align: left;
+  }
+}
+
+.responsive-nav__item {
+  color: color(primary);
+
+  @include desktop {
+    display: inline-block;
+    border-top: none;
+  }
+}
+
+.responsive-nav__link {
+  color: color(primary);
+  display: block;
+  white-space: nowrap;
+  padding-right: ($responsive-nav-hit-area - $responsive-nav-icon-size) / 2;
+  padding-left: ($responsive-nav-hit-area - $responsive-nav-icon-size) / 2;
+  line-height: $responsive-nav-hit-area;
+}
