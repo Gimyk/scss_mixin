@@ -1,5 +1,5 @@
-@import 'variables';
-@import 'mixin';
+@import "./tools/mixin.scss";
+@import "./tools/variables.scss";
 
 *{
     box-sizing: border-box;

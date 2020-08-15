@@ -42,7 +42,7 @@
 
 // needs fixing
 @mixin position($type, $top, $right, $bottom, $left){
-    position: fixed;
+    position: $type;
     top: $top;
     right: $right;
     bottom: $bottom;

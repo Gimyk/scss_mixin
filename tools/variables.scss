@@ -2,13 +2,15 @@ $mobi_res: 800px;
 
 $colors: (
     primary: #005DFF,
+    nav_bg: #005DFF,
     primary_light: lighten(#005DFF, 40%),
     primary_dark: darken(#005DFF, 40%),
     second: #FFF6BB,
     second-light: lighten(#005DFF, 40%),
     second-dark: darken(#005DFF, 40%),
     bg_primary: white,
-    bg_second: white
+    bg_second: white,
+    overlay: #7b7b7b59
 );
 
 $borders: (
