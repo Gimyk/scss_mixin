@@ -11,7 +11,7 @@ a {
 }
 
 nav {
-  @include fixedPos(fixed, 0, 0, null, 0);
+  @include position(fixed, 0, 0, null, 0);
   @include size(100%, 3em);
   @include flexi(row, space-between);
 
@@ -31,7 +31,7 @@ nav {
 
   &:after {
     content: "☰";
-    @include fixedPos(absolute, 30%, 0.8em, null, null);
+    @include position(absolute, 30%, 0.8em, null, null);
     @include size(1em, null);
     font-size: 11pt;
     width: 1em;

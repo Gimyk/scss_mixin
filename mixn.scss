@@ -41,7 +41,7 @@
 }
 
 // needs fixing
-@mixin fixedPos($type, $top, $right, $bottom, $left){
+@mixin position($type, $top, $right, $bottom, $left){
     position: fixed;
     top: $top;
     right: $right;
@@ -52,4 +52,9 @@
 @mixin size($w,$h){
     width: $w;
     height: $h;
+}
+
+@mixin center_item ($margin_top){
+    display: block;
+    margin: $margin_top auto;
 }
