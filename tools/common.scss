@@ -1,21 +1,14 @@
-@import "./tools/mixin.scss";
-@import "./tools/variables.scss";
+@import "./mixin", "./variables";
 
-$nav-icon-size: 20pt;
-$nav-hit-area: 10px;
-$nav-zindex: 10;
-* {
-  box-sizing: border-box;
-}
-nav {
+// for navbar
+%nav {
   @include position(fixed, 0, 0, null, 0);
   @include size(null, 3em);
   @include flexi(row, space-between);
 
-  //   overflow: hidden;
   background: color(nav_bg);
   z-index: $nav-zindex;
-  box-shadow: 1px 1px 20px 0px #00000073;
+  box-shadow: 0px 0px 20px 0px color(faint_shadow);
   padding: 0 1em 0 1em;
 
   .nav-title {
@@ -25,7 +18,6 @@ nav {
   img {
     @include size(70px, 35px);
     margin-top: 5px;
-    // object-position: center;
     object-fit: contain;
   }
 
@@ -89,11 +81,6 @@ nav {
         white-space: nowrap;
         line-height: $nav-hit-area;
 
-        // &:hover {
-        //   background: color(primary_light);
-        //   color: color(primary_dark);
-        // }
-
         &:hover::before {
           transform: scale(1, 1);
         }
@@ -120,7 +107,7 @@ nav {
   }
 }
 
-.overlay {
+%overlay {
   @include position(fixed, 0, 0, 0, 0);
   z-index: ($nav-zindex - 1);
   background: color(overlay);
@@ -138,3 +125,29 @@ nav {
     transform: scale(1, 1);
   }
 }
+// end navbar
+
+// for tables
+%table {
+  border-collapse: collapse;
+  @include size(100%, null);
+  tr {
+    td,
+    th {
+      padding: $pad;
+    }
+    th {
+      background: color(bg_primary);
+      color: color(second);
+    }
+  }
+
+  tr:nth-child(even) {
+    background: color(faint_bg);
+  }
+
+  tr:hover {
+    background: color(primary_light);
+  }
+}
+// end tables

@@ -1,60 +1,97 @@
-@import 'variables';
+@import "variables";
 
 @mixin mobile {
-    @media (max-width: $mobi_res) {
-        @content;
-    }
+  @media (max-width: $mobi_res) {
+    @content;
+  }
 }
 
 @mixin desktop {
-    @media (min-width: $mobi_res) {
-        @content;
-    }
+  @media (min-width: $mobi_res) {
+    @content;
+  }
 }
 
+@mixin button_def($type) {
+  border: solid thin white;
+  padding: $pad;
+  text-transform: uppercase;
+  box-shadow: border(thin_shadow);
+  cursor: pointer;
+  
+  $hover_color: color(primary_light);
+  $hover_bg: color(primary_dark);
 
-@mixin button_def{
-    border: none;
-    background: white;
+  @if ($type == "primary") {
+    background: color(primary);
+    border-color: color(primary);
+    color: white;
+  } @else {
+    background: color(second);
+    border-color: color(primary);
+    color: color(primary);
+  }
 
+  &:hover {
+    color: $hover_color;
+    background: $hover_bg;
+  }
 }
 
-@mixin input_def{
-    border: none;
-    background: white;
-    padding: .2em;
-    width: 100%;
-
+@mixin input_def {
+  border: none;
+  background: white;
+  padding: 0.2em;
+  width: 100%;
 }
 
-@mixin flexi($direction, $position){
-    display: flex;
-    align-items: center;
-    justify-content: $position;
-    flex-direction: $direction;
-    width: 100%;
+@mixin flexi($direction, $position) {
+  display: flex;
+  align-items: center;
+  justify-content: $position;
+  flex-direction: $direction;
+  width: 100%;
 }
 
-@mixin grid($min){
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax($min, 1fr));
+@mixin grid($min, $gap) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($min, 1fr));
+  gap: $gap;
 }
 
 // needs fixing
-@mixin position($type, $top, $right, $bottom, $left){
-    position: $type;
-    top: $top;
-    right: $right;
-    bottom: $bottom;
-    left: $left;
+@mixin position($type, $top, $right, $bottom, $left) {
+  position: $type;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
 }
 
-@mixin size($w,$h){
-    width: $w;
-    height: $h;
+@mixin size($w, $h) {
+  width: $w;
+  height: $h;
 }
 
-@mixin center_item ($margin_top){
-    display: block;
-    margin: $margin_top auto;
+@mixin center_item($margin_top, $text_direction) {
+  // does not work with buttons,
+  display: block;
+  margin: $margin_top auto;
+  @if($text_direction){
+    text-align: $text_direction; //use this to center buttons as well
+  }
 }
+
+// copied from the sass website
+// @mixin order($height, $selectors...) {
+//   @for $i from 0 to length($selectors) {
+//     #{nth($selectors, $i + 1)} {
+//       position: absolute;
+//       height: $height;
+//       margin-top: $i * $height;
+//     }
+//   }
+// }
+
+
+

@@ -1,6 +1,64 @@
-@import "./tools/mixin.scss";
-@import "./tools/variables.scss";
+@import "./tools/mixin", "./tools/variables", "./tools/common";
 
-*{
-    box-sizing: border-box;
+html,
+body {
+  @include size(100%, 100%);
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+  &:focus{
+    outline: none;
+  }
+}
+
+.main{
+  padding: 1em;
+}
+
+.jumbotron{
+  @include center_item(5em, null);
+  box-shadow: border(thin_shadow);
+  padding: ($pad + 1);
+  .center{
+    @include center_item(1em, right);
+  }
+
+  button{
+    width: 8em;
+  }
+
+}
+
+.table{
+  @extend %table;
+}
+
+
+.btn_primary{
+  @include button_def('primary');
+  
+}
+
+.btn_second{
+  @include button_def('second');
+}
+
+.card{
+  box-shadow: border(thin_shadow);
+  padding: $pad;
+}
+
+.grid{
+  @include grid(20em, 1em)
+}
+
+nav{
+  @extend %nav;
+}
+
+.overlay{
+  @extend %overlay;
 }

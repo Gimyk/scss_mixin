@@ -1,23 +1,31 @@
 $mobi_res: 800px;
+$pad: .5em;
+$nav-icon-size: 20pt;
+$nav-hit-area: 10px;
+$nav-zindex: 10;
+
 
 $colors: (
     primary: #005DFF,
     nav_bg: #005DFF,
     primary_light: lighten(#005DFF, 40%),
     primary_dark: darken(#005DFF, 40%),
-    second: #FFF6BB,
+    txt_primary: #005DFF,
+    txt_second: white,
+    second: white,
     second-light: lighten(#005DFF, 40%),
     second-dark: darken(#005DFF, 40%),
-    bg_primary: white,
+    bg_primary: #005DFF,
     bg_second: white,
-    overlay: #7b7b7b59
+    overlay: #7b7b7b59,
+    faint_bg: #ddddddd8,
+    faint_shadow: #00000073,
 );
 
-$borders: (
-    border-rad: .1em,
+$borders_shadows: (
+    thin_shadow: 0 0 5px 0px color(faint_bg),
     primary-light: lighten(#005DFF, 40%),
     primary-dark: darken(#005DFF, 40%),
-    accent: #FFF6BB
 );
 
 @function color($color-name) {
@@ -25,5 +33,5 @@ $borders: (
 };
 
 @function border($border-name) {
-    @return map-get($borders, $border-name)
+    @return map-get($borders_shadows, $border-name)
 }
