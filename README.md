@@ -11,7 +11,7 @@ Just import the tools into your code and you can make use of the **@mixins**
 Or if you are using VS code, you can download the extension Live Sass Compiler [here](https://marketplace.visualstudio.com/items?itemName=ritwickdey.live-sass)
 
 
-## Nav file
-This contains simple responsive nav bar HTML and SCSS to get started with
+## Common file
+This contains simple responsive  SCSS to get started with
 
-I'll be adding more common components later
+_I'll be adding more common components later_
