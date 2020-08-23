@@ -18,14 +18,20 @@ $colors: (
     bg_primary: #005DFF,
     bg_second: white,
     overlay: #7b7b7b59,
-    faint_bg: #ddddddd8,
+    faint_bg: #e4e4e4a3,
     faint_shadow: #00000073,
 );
+
+$mat: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+$mat_raise: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
 
 $borders_shadows: (
     thin_shadow: 0 0 5px 0px color(faint_bg),
     primary-light: lighten(#005DFF, 40%),
     primary-dark: darken(#005DFF, 40%),
+    flat_shadow: $mat,
+    raise_shadow: $mat_raise,
+    thin_border: solid thin #cccccc
 );
 
 @function color($color-name) {

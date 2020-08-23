@@ -1,4 +1,5 @@
-@import "./tools/mixin", "./tools/variables", "./tools/common";
+@import "./tools/mixin", "./tools/variables", "./tools/common",
+  "./tools/animations";
 
 html,
 body {
@@ -9,56 +10,60 @@ body {
 
 * {
   box-sizing: border-box;
-  &:focus{
+  &:focus {
     outline: none;
   }
 }
 
-.main{
+.main {
   padding: 1em;
 }
 
-.jumbotron{
+.jumbotron {
   @include center_item(5em, null);
+  @include column(3, 2);
   box-shadow: border(thin_shadow);
   padding: ($pad + 1);
-  .center{
+  .center {
     @include center_item(1em, right);
   }
 
-  button{
+  button {
     width: 8em;
   }
-
 }
 
-.table{
-  @extend %table;
+.table {
+  @extend %mat_table;
 }
 
-
-.btn_primary{
-  @include button_def('primary');
-  
+.btn_primary {
+  @include button_def("primary");
 }
 
-.btn_second{
-  @include button_def('second');
+.btn_second {
+  @include button_def("second");
 }
 
-.card{
+.card {
   box-shadow: border(thin_shadow);
   padding: $pad;
 }
 
-.grid{
-  @include grid(20em, 1em)
+.grid {
+  @include grid(20em, 1em);
 }
 
-nav{
+nav {
   @extend %nav;
 }
 
-.overlay{
+.overlay {
   @extend %overlay;
+}
+
+form {
+  @include center_item(1em, right);
+  width: 90%;
+  @extend %standard_form;
 }

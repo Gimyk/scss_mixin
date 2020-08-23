@@ -16,9 +16,10 @@
   border: solid thin white;
   padding: $pad;
   text-transform: uppercase;
-  box-shadow: border(thin_shadow);
+  box-shadow: border(raise_shadow);
   cursor: pointer;
-  
+  margin: 0.5em;
+
   $hover_color: color(primary_light);
   $hover_bg: color(primary_dark);
 
@@ -38,7 +39,7 @@
   }
 }
 
-@mixin input_def {
+@mixin table_def {
   border: none;
   background: white;
   padding: 0.2em;
@@ -59,7 +60,6 @@
   gap: $gap;
 }
 
-// needs fixing
 @mixin position($type, $top, $right, $bottom, $left) {
   position: $type;
   top: $top;
@@ -73,11 +73,57 @@
   height: $h;
 }
 
+@mixin input_def {
+  border: none;
+  background: white;
+  width: 100%;
+  padding: ($pad + 0.3);
+  caret-color: color(primary);
+  margin: 0.5em;
+}
+
+@mixin form_def {
+  input,
+  textarea {
+    @include input_def;
+    min-width: 100%;
+    max-width: 100%;
+  }
+  textarea {
+    min-height: 3em;
+  }
+  button[type="submit"] {
+    @include button_def("primary");
+  }
+
+  button[type="reset"] {
+    @include button_def("second");
+  }
+}
+
+@mixin table_def {
+  border-collapse: collapse;
+  @include size(100%, null);
+    td,
+    th {
+      padding: $pad;
+    }
+}
+
+@mixin column($count, $mobile_count) {
+  column-count: $count;
+  column-gap: 1.5em;
+  column-rule: 1em none transparent;
+  @include mobile {
+    column-count: $mobile_count;
+  }
+}
+
 @mixin center_item($margin_top, $text_direction) {
   // does not work with buttons,
   display: block;
   margin: $margin_top auto;
-  @if($text_direction){
+  @if ($text_direction) {
     text-align: $text_direction; //use this to center buttons as well
   }
 }
@@ -92,6 +138,3 @@
 //     }
 //   }
 // }
-
-
-

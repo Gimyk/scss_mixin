@@ -116,30 +116,15 @@
     display: block;
   }
 }
-
-@keyframes opening_nav {
-  from {
-    transform: scale(1, 0);
-  }
-  to {
-    transform: scale(1, 1);
-  }
-}
 // end navbar
 
-// for tables
-%table {
-  border-collapse: collapse;
-  @include size(100%, null);
-  tr {
-    td,
-    th {
-      padding: $pad;
-    }
-    th {
-      background: color(bg_primary);
-      color: color(second);
-    }
+/* for tables */
+// Standard table
+%standard_table {
+  @include table_def;
+  th {
+    background: color(bg_primary);
+    color: color(second);
   }
 
   tr:nth-child(even) {
@@ -150,4 +135,57 @@
     background: color(primary_light);
   }
 }
-// end tables
+
+// Mat Design
+%mat_table {
+  @include table_def;
+  tr{
+    border-bottom: border(thin_border);
+  }
+  th,
+  td {
+    text-align: left;
+    padding: 1em;
+  }
+  th {
+    color: #696969e0;
+  }
+  box-shadow: -1px 0px 9px 0px #9f9d9dba;
+  td {
+    font-size: 12pt;
+  }
+}
+/* end tables */
+
+/* forms */
+//Standard
+%standard_form {
+  @include form_def;
+  input,
+  textarea {
+    border: border(thin_border);
+  }
+}
+
+// shadowed
+%shadowed_form {
+  @include form_def;
+  input,
+  textarea {
+    box-shadow: inset 0px 0px 2px 0px color(primary);
+    &:focus {
+      box-shadow: 0px 0px 3px 1px color(primary);
+    }
+  }
+}
+
+// mat based
+%mat_form {
+  @include form_def;
+
+  input,
+  textarea {
+    border-bottom: solid thin color(primary);
+  }
+}
+/* End Forms */

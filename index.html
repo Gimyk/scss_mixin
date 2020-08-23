@@ -23,8 +23,27 @@
             <li><a href="#">Feedback</a></li>
         </ul>
     </nav>
-    <div class="main">
+    <br>
+    <br>
+    <br>
+    <br>
 
+    <div class="dialogue">
+        Details dialogue, more or less like a model
+    </div>
+
+
+    <form action="">
+        <input type="text" placeholder="Type Something">
+        <input type="text" placeholder="Type Something">
+        <textarea name="" id="" cols="30" rows="10" placeholder="Type Something"></textarea>
+        <div class="action">
+            <button type="submit">SAVE</button>
+            <button type="reset">RESET</button>
+        </div>
+    </form>
+
+    <div class="main">
         <div class="jumbotron">
             <h2>Something</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut alias deserunt ex, sunt excepturi dolore
@@ -55,7 +74,6 @@
                 <button class="btn_primary">ntnntn</button>
                 <button class="btn_second">ntnntn</button>
             </div>
-    
         </div>
 
         <table class="table">
@@ -122,7 +140,7 @@
             </tr>
         </table>
 
-        
+
         <div class="grid">
             <div class="card">
                 <h3>sometihng</h3>
@@ -142,19 +160,9 @@
         </div>
     </div>
 
-    <script>
-        const icon = document.getElementById('on_mobile');
-        const nav_items = document.querySelectorAll('#nav_items');
-        const whenMobile = 800; // make sure this is the same as $mobi_res in variables.scss file
-        icon.addEventListener('click', () => {
-            if (window.innerWidth < whenMobile) {
-                icon.classList.toggle('is-open');
-                nav_items.forEach(e => {
-                    e.classList.toggle('is-open');
-                });
-            }
-        });
-    </script>
+
+
+    <script src="tools/main.js"></script>
 </body>
 
 </html>
