@@ -9,3 +9,24 @@ icon.addEventListener('click', () => {
         });
     }
 });
+
+const dialogue = document.getElementById('dialogue');
+dialogue.addEventListener('click', (e) => {
+    if (e.target == dialogue) {
+        closedialogue()
+    }
+});
+
+const showDialogue = document.getElementById('showDialogue');
+showDialogue.addEventListener('click', (e) => {
+    closedialogue()
+});
+
+
+function closedialogue() {
+    if (dialogue.style.display === 'flex' || (!dialogue.style.display)) {
+        dialogue.style.display = "none"
+    } else {
+        dialogue.style.display = "flex"
+    }
+}

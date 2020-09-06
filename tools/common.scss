@@ -139,7 +139,7 @@
 // Mat Design
 %mat_table {
   @include table_def;
-  tr{
+  tr {
     border-bottom: border(thin_border);
   }
   th,
@@ -189,3 +189,23 @@
   }
 }
 /* End Forms */
+
+// dialogue
+%dialogue {
+  @extend %overlay;
+  @include flexi(row, center);
+  z-index: 99;
+  display: none;
+  .contents {
+    background: white;
+    padding: 1em;
+  }
+}
+
+// dialogue
+%dialogue {
+
+}
+
+
+

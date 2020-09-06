@@ -12,7 +12,7 @@
   }
 }
 
-@mixin button_def($type) {
+@mixin button_def($type:null) {
   border: solid thin white;
   padding: $pad;
   text-transform: uppercase;
@@ -27,9 +27,13 @@
     background: color(primary);
     border-color: color(primary);
     color: white;
-  } @else {
+  } @else if ($type == "second") {
     background: color(second);
     border-color: color(primary);
+    color: color(primary);
+  } @else{
+    background: white;
+    border: none;
     color: color(primary);
   }
 
@@ -91,6 +95,7 @@
   }
   textarea {
     min-height: 3em;
+    max-height: 20em;
   }
   button[type="submit"] {
     @include button_def("primary");
@@ -104,10 +109,10 @@
 @mixin table_def {
   border-collapse: collapse;
   @include size(100%, null);
-    td,
-    th {
-      padding: $pad;
-    }
+  td,
+  th {
+    padding: $pad;
+  }
 }
 
 @mixin column($count, $mobile_count) {
@@ -117,6 +122,13 @@
   @include mobile {
     column-count: $mobile_count;
   }
+}
+
+@mixin fixed_bg_image($src, $repeat) {
+  background-image: url($src);
+  background-repeat: $repeat;
+  background-size: auto;
+  background-attachment: fixed;
 }
 
 @mixin center_item($margin_top, $text_direction) {
