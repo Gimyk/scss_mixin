@@ -25,7 +25,7 @@ showDialogue.addEventListener('click', (e) => {
 
 
 function closedialogue() {
-    if (dialogue.style.display === 'flex' || (!dialogue.style.display)) {
+    if (dialogue.style.display === 'flex' || (!dialogue.style.display) || dialogue.style.display === 'block') {
         dialogue.style.display = "none";
         document.body.style.overflow = 'auto'
     } else {
