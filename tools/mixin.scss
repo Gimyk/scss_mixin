@@ -12,26 +12,26 @@
   }
 }
 
-@mixin button_def($type:null) {
+@mixin button_def($type: null) {
   border: solid thin white;
   padding: $pad;
   text-transform: uppercase;
   box-shadow: border(raise_shadow);
-  cursor: pointer;
   margin: 0.5em;
+  cursor: pointer;
 
   $hover_color: color(primary_light);
   $hover_bg: color(primary_dark);
 
   @if ($type == "primary") {
-    background: color(primary);
-    border-color: color(primary);
+    background: color(btn_primary);
+    border-color: color(btn_primary);
     color: white;
   } @else if ($type == "second") {
-    background: color(second);
+    background: color(btn_second);
     border-color: color(primary);
     color: color(primary);
-  } @else{
+  } @else {
     background: white;
     border: none;
     color: color(primary);
@@ -41,13 +41,6 @@
     color: $hover_color;
     background: $hover_bg;
   }
-}
-
-@mixin table_def {
-  border: none;
-  background: white;
-  padding: 0.2em;
-  width: 100%;
 }
 
 @mixin flexi($direction, $position) {
@@ -107,8 +100,14 @@
 }
 
 @mixin table_def {
-  border-collapse: collapse;
   @include size(100%, null);
+  border-collapse: collapse;
+  border: none;
+  padding: 0.2em;
+  width: 100%;
+  background: color(main_item_bg);
+  margin: 1em 0 1em 0;
+
   td,
   th {
     padding: $pad;
@@ -131,12 +130,120 @@
   background-attachment: fixed;
 }
 
-@mixin center_item($margin_top, $text_direction) {
+@mixin center_item($margin_top, $text_direction: null) {
   // does not work with buttons,
   display: block;
   margin: $margin_top auto;
   @if ($text_direction) {
     text-align: $text_direction; //use this to center buttons as well
+  }
+}
+
+@mixin nav($shadow: null) {
+  @include position(fixed, 0, 0, null, 0);
+  @include size(null, 3em);
+  @include flexi(row, space-between);
+
+  background: color(nav_bg);
+  z-index: $nav-zindex;
+  padding: 0 1em 0 1em;
+  @if ($shadow) {
+    box-shadow: 0px 0px 20px 0px color(faint_shadow);
+  }
+
+  .nav-title {
+    color: color(second);
+  }
+
+  img {
+    @include size(70px, 35px);
+    margin-top: 5px;
+    object-fit: contain;
+  }
+
+  .on_mobile {
+    @include mobile {
+      &:after {
+        content: "☰";
+        @include position(absolute, 0.8em, 0.8em, null, null);
+        @include size(1em, null);
+        font-size: $nav-icon-size;
+        line-height: 1;
+        text-align: center;
+        margin-top: -($nav-icon-size / 2);
+        margin-left: -($nav-icon-size / 2);
+        color: color(second);
+      }
+
+      &.is-open {
+        overflow: visible;
+        &:after {
+          content: "✕";
+          color: color(second);
+        }
+      }
+    }
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    display: block;
+    background: none;
+    position: static;
+    @include mobile {
+      background: color(nav_bg);
+      @include size(100%, null);
+      @include position(absolute, 0, 0, null, 0);
+      margin-top: 3em;
+      text-align: center;
+      display: none;
+      z-index: $nav-zindex;
+    }
+
+    li {
+      display: inline-block;
+      color: color(second);
+      padding: 0;
+      @include mobile {
+        display: block;
+        margin: 1em;
+      }
+      a {
+        position: relative;
+        padding: 1em;
+        color: color(second);
+        text-decoration: none;
+        display: block;
+        cursor: pointer;
+        white-space: nowrap;
+        line-height: $nav-hit-area;
+
+        &:hover::before {
+          transform: scale(1, 1);
+        }
+
+        &::before {
+          content: "";
+          display: block;
+          height: 2px;
+          background: color(primary_dark);
+          @include position(absolute, null, 0, 0, 0);
+          transform: scale(0, 1);
+          transition: transform ease-in-out 250ms;
+          transform-origin: left;
+        }
+      }
+    }
+
+    &.is-open {
+      display: block;
+      transition: 1s;
+      transform-origin: top;
+      animation: opening_nav ease-in-out;
+    }
   }
 }
 

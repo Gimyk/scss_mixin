@@ -8,6 +8,11 @@ body {
   padding: 0;
 }
 
+// body{
+//   background: color(primary) ;
+// }
+
+
 * {
   box-sizing: border-box;
   &:focus {
@@ -17,7 +22,6 @@ body {
 
 button{
   @include button_def();
-
 }
 
 .main {
@@ -25,7 +29,7 @@ button{
 }
 
 .jumbotron {
-  @include center_item(5em, null);
+  @include center_item(5em);
   @include column(3, 2);
   box-shadow: border(thin_shadow);
   padding: ($pad + 1);
@@ -60,7 +64,7 @@ button{
 }
 
 nav {
-  @extend %nav;
+  @include nav();
 }
 
 .overlay {
@@ -75,4 +79,11 @@ nav {
 
 #dialogue {
   @extend %dialogue;
+}
+
+
+.fixedImage{
+  // @include fixed_bg_image("./tools/logo.png", no-repeat);
+  @include fixed_bg_image("./tools/bg.jpg", no-repeat);
+  @extend %fixedImage;
 }

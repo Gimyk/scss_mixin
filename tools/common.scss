@@ -1,112 +1,6 @@
 @import "./mixin", "./variables";
 
 // for navbar
-%nav {
-  @include position(fixed, 0, 0, null, 0);
-  @include size(null, 3em);
-  @include flexi(row, space-between);
-
-  background: color(nav_bg);
-  z-index: $nav-zindex;
-  box-shadow: 0px 0px 20px 0px color(faint_shadow);
-  padding: 0 1em 0 1em;
-
-  .nav-title {
-    color: color(second);
-  }
-
-  img {
-    @include size(70px, 35px);
-    margin-top: 5px;
-    object-fit: contain;
-  }
-
-  .on_mobile {
-    @include mobile {
-      &:after {
-        content: "☰";
-        @include position(absolute, 0.8em, 0.8em, null, null);
-        @include size(1em, null);
-        font-size: $nav-icon-size;
-        line-height: 1;
-        text-align: center;
-        margin-top: -($nav-icon-size / 2);
-        margin-left: -($nav-icon-size / 2);
-        color: color(second);
-      }
-
-      &.is-open {
-        overflow: visible;
-        &:after {
-          content: "✕";
-          color: color(second);
-        }
-      }
-    }
-  }
-
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    width: auto;
-    display: block;
-    background: none;
-    position: static;
-    @include mobile {
-      background: color(nav_bg);
-      @include size(100%, null);
-      @include position(absolute, 0, 0, null, 0);
-      margin-top: 3em;
-      text-align: center;
-      display: none;
-      z-index: $nav-zindex;
-    }
-
-    li {
-      display: inline-block;
-      color: color(second);
-      padding: 0;
-      @include mobile {
-        display: block;
-        margin: 1em;
-      }
-      a {
-        position: relative;
-        padding: 1em;
-        color: color(second);
-        text-decoration: none;
-        display: block;
-        cursor: pointer;
-        white-space: nowrap;
-        line-height: $nav-hit-area;
-
-        &:hover::before {
-          transform: scale(1, 1);
-        }
-
-        &::before {
-          content: "";
-          display: block;
-          height: 2px;
-          background: color(primary_dark);
-          @include position(absolute, null, 0, 0, 0);
-          transform: scale(0, 1);
-          transition: transform ease-in-out 250ms;
-          transform-origin: left;
-        }
-      }
-    }
-
-    &.is-open {
-      display: block;
-      transition: 1s;
-      transform-origin: top;
-      animation: opening_nav ease-in-out;
-    }
-  }
-}
-
 %overlay {
   @include position(fixed, 0, 0, 0, 0);
   z-index: ($nav-zindex - 1);
@@ -154,6 +48,7 @@
   td {
     font-size: 12pt;
   }
+
 }
 /* end tables */
 
@@ -203,9 +98,7 @@
 }
 
 // dialogue
-%dialogue {
-
+%fixedImage {
+  width: 100%;
+  height: 30em;
 }
-
-
-
