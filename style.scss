@@ -8,11 +8,6 @@ body {
   padding: 0;
 }
 
-// body{
-//   background: color(primary) ;
-// }
-
-
 * {
   box-sizing: border-box;
   &:focus {
@@ -31,7 +26,7 @@ button{
 .jumbotron {
   @include center_item(5em);
   @include column(3, 2);
-  box-shadow: border(thin_shadow);
+  box-shadow: border(thick_faint_shadow);
   padding: ($pad + 1);
   .center {
     @include center_item(1em, right);

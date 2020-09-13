@@ -29,7 +29,9 @@ $colors: (
     bg_primary: #005DFF,
     bg_second: white,
     
-    nav_bg: #005DFF, // for navbar
+    // for navbar
+    nav_bg: #005DFF, 
+    nav_txt: #fff, 
     
     overlay: #0000008c,
     faint_bg: #e4e4e4a3,
@@ -44,6 +46,7 @@ $colors: (
 
 $borders_shadows: (
     thin_shadow: 0 0 5px 0px color(faint_bg),
+    thick_faint_shadow: 0 0 20px 7px color(faint_bg),
     primary-light: lighten(color(primary), 40%),
     primary-dark: darken(color(primary), 40%),
     flat_shadow: $mat,

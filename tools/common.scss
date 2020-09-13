@@ -6,6 +6,7 @@
   z-index: ($nav-zindex - 1);
   background: color(overlay);
   display: none;
+  backdrop-filter: blur(1px);
   &.is-open {
     display: block;
   }
