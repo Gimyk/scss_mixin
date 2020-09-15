@@ -43,11 +43,15 @@
   }
 }
 
-@mixin flexi($direction, $position) {
+@mixin flexi($direction, $position: null) {
   display: flex;
   align-items: center;
-  justify-content: $position;
   flex-direction: $direction;
+  @if ($position){
+    justify-content: $position;
+  }@else{
+    justify-content: center;
+  }
   width: 100%;
 }
 

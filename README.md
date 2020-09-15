@@ -16,3 +16,27 @@ Or if you are using VS code, you can download the extension Live Sass Compiler [
 This contains simple responsive  SCSS to get started with
 
 _I'll be adding more common components later_
+
+
+
+
+# How to Use
+
+* To add **flex box** properties:
+
+```
+// Specify direction as the first parameter, eitehr column or row
+// And second optional parameter for position, either center, flex-end etc. default is center e.g:
+.classname{
+    @include flexi(row)
+}
+
+// CSS out put will be
+.classname{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+```
+
