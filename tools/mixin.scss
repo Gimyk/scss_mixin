@@ -47,9 +47,9 @@
   display: flex;
   align-items: center;
   flex-direction: $direction;
-  @if ($position){
+  @if ($position) {
     justify-content: $position;
-  }@else{
+  } @else {
     justify-content: center;
   }
   width: 100%;
@@ -150,15 +150,15 @@
   z-index: $nav-zindex;
   padding: 0 1em 0 1em;
 
-  $textcolor:  color(nav_txt);
+  $textcolor: color(nav_txt);
   $main_bg_color: color(nav_bg);
 
   @if ($bg) {
     $main_bg_color: $bg;
-  }   
+  }
   @if ($txt_color) {
     $textcolor: $txt_color;
-  }   
+  }
   @if ($shadow) {
     box-shadow: 0px 0px 20px 0px color(faint_shadow);
   }
@@ -185,14 +185,14 @@
         text-align: center;
         margin-top: -($nav-icon-size / 2);
         margin-left: -($nav-icon-size / 2);
-        color:  $textcolor;
+        color: $textcolor;
       }
 
       &.is-open {
         overflow: visible;
         &:after {
           content: "✕";
-          color:  $textcolor;
+          color: $textcolor;
         }
       }
     }
@@ -259,18 +259,60 @@
   }
 }
 
-@mixin ul_clickable($margin_top, $padding, $bg-color) {
-  display: block;
-  li{
-    margin-top: $margin_top;
+@mixin ul_def() {
+  margin: 0.3em;
+  padding: 0;
+  li {
     list-style-type: none;
-    padding: $padding;
     width: 100%;
+    transition: all 0.4s;
+    @content;
+  }
+}
+
+@mixin ul_clickable($margin_top, $padding, $bg-color, $color, $alt_color: null) {
+  @include ul_def() {
+    color: $color;
+    margin-top: $margin_top;
+    padding: $padding;
     background-color: $bg-color;
     cursor: pointer;
-    transition: all .4s;
-    &:hover{
+    &:hover {
       transform: scale(1.01);
+    }
+    &.alt {
+      @if ($alt_color) {
+        color: $alt_color;
+        background-color: lighten($bg-color, 20%);
+        cursor: default;
+      } @else {
+        color: color(txt_primary);
+      }
+      &:hover {
+        transform: scale(1);
+      }
+    }
+  }
+}
+
+@mixin ul_unclickable($margin_top, $padding, $border-color: null, $alt_color: null) {
+  $bc: #cccccc;
+  @if ($border-color) {
+    $bc: $border-color;
+  }
+  
+  @include ul_def() {
+    margin-top: $margin_top;
+    padding: $padding;
+    border: border(thin_border);
+    border-color: $bc;
+    &.alt {
+      @if ($alt_color) {
+        color: $alt_color;
+        border-color: lighten($bc, 10%);
+      } @else {
+        color: color(txt_primary);
+      }
     }
   }
 }

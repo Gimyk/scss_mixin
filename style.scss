@@ -83,5 +83,9 @@ nav {
 }
 
 .ul-clickable{
-  @include ul_clickable(1em, 1em, red)
+  @include ul_clickable(.3em, 1em, rgb(0, 174, 255), white, red)
+}
+
+.ul-unclickable{
+  @include ul_unclickable(.3em, 1em, null, red)
 }
