@@ -259,6 +259,17 @@
   }
 }
 
+@mixin ul_clickable($margin_top, $padding, $bg-color) {
+  display: block;
+  margin-top: $margin_top;
+  li{
+    list-style-type: none;
+    padding: $padding;
+    width: 100%;
+    background-color: $bg-color;
+  }
+}
+
 // copied from the sass website
 // @mixin order($height, $selectors...) {
 //   @for $i from 0 to length($selectors) {

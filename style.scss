@@ -78,7 +78,10 @@ nav {
 
 
 .fixedImage{
-  // @include fixed_bg_image("./tools/logo.png", no-repeat);
-  @include fixed_bg_image("./tools/bg.jpg", no-repeat);
+  @include fixed_bg_image("./dump/bg.jpg", no-repeat);
   @extend %fixedImage;
+}
+
+.ul-clickable{
+  @include ul_clickable(1em, 1em, red)
 }
