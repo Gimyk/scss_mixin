@@ -261,12 +261,17 @@
 
 @mixin ul_clickable($margin_top, $padding, $bg-color) {
   display: block;
-  margin-top: $margin_top;
   li{
+    margin-top: $margin_top;
     list-style-type: none;
     padding: $padding;
     width: 100%;
     background-color: $bg-color;
+    cursor: pointer;
+    transition: all .4s;
+    &:hover{
+      transform: scale(1.01);
+    }
   }
 }
 
