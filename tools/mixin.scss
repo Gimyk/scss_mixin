@@ -43,10 +43,14 @@
   }
 }
 
-@mixin flexi($direction, $position: null) {
+@mixin flexi($direction:null, $position: null) {
+  $di: row;
+  @if ($direction) {
+      $di: $direction;
+  }
   display: flex;
   align-items: center;
-  flex-direction: $direction;
+  flex-direction: $di;
   @if ($position) {
     justify-content: $position;
   } @else {
