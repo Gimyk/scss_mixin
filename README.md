@@ -31,7 +31,8 @@ _I'll be adding more common components later_
 // Specify direction as the first parameter, either column or row
 // And second optional parameter for position, either center, flex-end etc. default is center e.g:
 .yourclassname {
-  @include flexi(row);
+  @include flexi(); 
+  //has optional parameters for (flex-direction, justify-content) 
 }
 
 // CSS out put will be
