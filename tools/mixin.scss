@@ -43,19 +43,11 @@
   }
 }
 
-@mixin flexi($direction:null, $position: null) {
-  $di: row;
-  @if ($direction) {
-      $di: $direction;
-  }
+@mixin flexi($direction:row, $position: center) {
   display: flex;
   align-items: center;
-  flex-direction: $di;
-  @if ($position) {
-    justify-content: $position;
-  } @else {
-    justify-content: center;
-  }
+  flex-direction: $direction;
+  justify-content: $position;
   width: 100%;
 }
 
@@ -139,7 +131,7 @@
 }
 
 @mixin center_item($margin_top, $text_direction: null) {
-  // does not work with buttons so have to set text align to a specific direction where the buttons will be,
+  // does not work well with buttons so have to set text align to a specific direction where the buttons will be,
   display: block;
   margin: $margin_top auto;
   @if ($text_direction) {
@@ -282,7 +274,9 @@
     background-color: $bg-color;
     cursor: pointer;
     &:hover {
-      transform: scale(1.01);
+      transform: scale(1.001);
+      box-shadow:  -1px 3px 2px 2px #bfbfbfb5;
+      
     }
     &.alt {
       @if ($alt_color) {
@@ -294,6 +288,7 @@
       }
       &:hover {
         transform: scale(1);
+        box-shadow: none;
       }
     }
   }
