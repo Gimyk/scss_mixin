@@ -144,7 +144,7 @@
 @mixin nav($bg: null, $txt_color: null, $shadow: null) {
   @include position(fixed, 0, 0, null, 0);
   @include size(null, 3em);
-  @include flexi(row, space-between);
+  @include flexi(row, space-between, center);
   z-index: $nav-zindex;
   padding: 0 1em 0 1em;
   $textcolor: color(nav_txt);
@@ -168,8 +168,9 @@
       object-fit: contain;
   }
   h3 {
-      margin-top: 5px;
-  }
+    margin: 0;
+    cursor: pointer;
+}
   .on_mobile {
       @include mobile {
           &:after {
