@@ -1,0 +1,25 @@
+@import "./tools/mixin", "./tools/variables", "./tools/common",
+  "./tools/animations";
+
+html,
+body {
+  @include size(100%, 100%);
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+  &:focus {
+    outline: none;
+  }
+}
+
+nav{
+    @include nav(color(primary_dark), black, 0)
+}
+
+.grid{
+    @include grid(20em, 1em)
+}
+

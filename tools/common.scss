@@ -1,6 +1,6 @@
-// @import "./mixin", "./variables";
-@use './variables' as *;
-@use './mixin' as *;
+@import "./mixin", "./variables";
+// @use 'variables' as *;
+// @use 'mixin' as *;
 
 // for navbar
 %overlay {
