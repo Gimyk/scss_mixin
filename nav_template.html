@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="nav.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="nav_items" class="overlay"></div>
+    <nav class="responsive-nav" id="responsive-nav">
+        <div class="nav-title">
+            <img src="./tools/logo.png">
+            <!-- <h3 >Logo</h3> -->
+            <!-- can replace with text instead  -->
+        </div>
+        <span class="on_mobile" id="on_mobile"></span>
+        <ul id="nav_items">
+            <li><a href="#">Menu</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Feedback</a></li>
+        </ul>
+    </nav>
+
+    <script>
+        const icon = document.getElementById('on_mobile');
+        const nav_items = document.querySelectorAll('#nav_items');
+        const whenMobile = 800; // make sure this is the same as $mobi_res in variables.scss file
+        icon.addEventListener('click', () => {
+            if (window.innerWidth < whenMobile) {
+                icon.classList.toggle('is-open');
+                nav_items.forEach(e => {
+                    e.classList.toggle('is-open');
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
